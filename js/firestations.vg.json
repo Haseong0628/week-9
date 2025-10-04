@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 680,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-134, 0, 0],
+    "center": [0, -25],
+    "scale": 1200
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#CBD5E1", "strokeWidth": 0.6}
+    },
+    {
+      "data": {
+        "url": "js/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "mark": {"type": "geoshape", "fill": "#F8FAFC", "stroke": "#94A3B8", "strokeWidth": 0.6}
+    },
+    {
+      "data": {"url": "data/Rural_Country_Fire_Service_Facilities.csv"},
+      "mark": {
+        "type": "circle",
+        "size": 25,
+        "opacity": 0.75,
+        "stroke": "white",
+        "strokeWidth": 0.2
+      },
+      "encoding": {
+        "longitude": {"field": "facility_long", "type": "quantitative"},
+        "latitude": {"field": "facility_lat", "type": "quantitative"},
+        "color": {
+          "field": "facility_state",
+          "type": "nominal",
+          "title": "State/Territory",
+          "legend": {"columns": 4}
+        },
+        "tooltip": [
+          {"field": "facility_name", "type": "nominal", "title": "Facility"},
+          {"field": "facility_state", "type": "nominal", "title": "State/Territory"},
+          {"field": "facility_address", "type": "nominal", "title": "Address"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "white",
+    "legend": {"orient": "bottom"}
+  }
+}
