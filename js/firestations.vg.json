@@ -13,7 +13,18 @@
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json?v=11",
+        "url": "js/ne_110m.json?v=12",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#C8D7E4",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "url": "js/ne_110m.json?v=12",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
@@ -34,15 +45,15 @@
       },
       "encoding": {
         "longitude": { "field": "facility_long", "type": "quantitative" },
-        "latitude":  { "field": "facility_lat",  "type": "quantitative" },
+        "latitude":  { "field": "facility_lat", "type": "quantitative" },
         "color": {
           "field": "facility_state",
           "type": "nominal",
           "title": "State/Territory"
         },
         "tooltip": [
-          { "field": "facility_name",    "type": "nominal", "title": "Facility" },
-          { "field": "facility_state",   "type": "nominal", "title": "State/Territory" },
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "facility_state", "type": "nominal", "title": "State/Territory" },
           { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
           { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
           { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
@@ -53,7 +64,7 @@
 
   "config": {
     "view": { "stroke": null },
-    "background": "white",
+    "background": "#B7D8F5",
     "legend": {
       "orient": "bottom",
       "columns": 4,
