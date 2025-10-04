@@ -12,28 +12,25 @@
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {"type": "geoshape", "stroke": "#CBD5E1", "strokeWidth": 0.6}
-    },
-    {
-      "data": {
-        "url": "js/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      },
-      "mark": {"type": "geoshape", "fill": "#F8FAFC", "stroke": "#94A3B8", "strokeWidth": 0.6}
-    },
-    {
-      "data": {
-        "url": "js/Land_Borders_-_Borderlines.geojson",
-        "format": {"type": "geojson"}
+        "url": "js/aus_states_graticule.json",
+        "format": {"type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020"}
       },
       "mark": {
         "type": "geoshape",
         "fill": null,
-        "stroke": "#6366F1",
-        "strokeWidth": 1
+        "stroke": "#94A3B8",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "js/aus_states_graticule.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#CBD5E1",
+        "strokeWidth": 0.6
       }
     },
     {
