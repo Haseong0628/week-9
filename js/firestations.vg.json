@@ -46,8 +46,8 @@
           { "field": "facility_name",    "type": "nominal", "title": "Facility" },
           { "field": "facility_state",   "type": "nominal", "title": "State/Territory" },
           { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
-          { "field": "gnaf_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "gnaf_postcode", "type": "nominal", "title": "Post Code" }
+          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
+          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
         ]
       }
     }
