@@ -1,17 +1,8 @@
 body {
-  background-color: "white";        /* soft off-white background */
+  background-color: #f8fafc;        /* soft off-white background */
   display: flex;                    /* enables flex layout */
   justify-content: center;          /* horizontal centering */
-  align-items: center;              /* vertical centering */                    /* make body fill full browser height */
+  align-items: center;              /* vertical centering */
+  height: 100vh;                    /* make body fill full browser height */
   margin: 0;                        /* remove default margins */
 }
-
-#firestations_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
-}
-
