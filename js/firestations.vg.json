@@ -6,8 +6,8 @@
     "type": "conicEqualArea",
     "parallels": [-18, -36],
     "rotate": [-134, 0, 0],
-    "center": [0, -35],
-    "scale": 1250
+    "center": [0, -40],
+    "scale": 1300
   },
 
   "layer": [
