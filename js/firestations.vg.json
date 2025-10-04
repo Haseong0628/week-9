@@ -14,17 +14,6 @@
     {
       "data": {
         "url": "js/ne_110m.json?v=11",
-        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#B7D8F5",     
-        "stroke": null
-      }
-    },
-    {
-      "data": {
-        "url": "js/ne_110m.json?v=11",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
@@ -64,7 +53,7 @@
 
   "config": {
     "view": { "stroke": null },
-    "background": "white",
+    "background": "#B7D8F5",   // ← light blue background (ocean)
     "legend": {
       "orient": "bottom",
       "columns": 4,
