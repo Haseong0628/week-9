@@ -2,11 +2,17 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 1000,
   "height": 680,
-  "projection": { "type": "conicEqualArea", "fit": true },
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [-18, -36],
+    "rotate": [-134, 0, 0],
+    "center": [0, -20],
+    "scale": 1000
+  },
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json?v=7",
+        "url": "js/ne_110m.json?v=8",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
@@ -27,7 +33,7 @@
       },
       "encoding": {
         "longitude": { "field": "facility_long", "type": "quantitative" },
-        "latitude":  { "field": "facility_lat", "type": "quantitative" },
+        "latitude":  { "field": "facility_lat",  "type": "quantitative" },
         "color": {
           "field": "facility_state",
           "type": "nominal",
