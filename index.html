@@ -1,81 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Australia Rural Fire Stations — Dot Map (Vega-Lite)</title>
-  <style>
-    body{font-family:system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin:0; padding:2rem; background:#f8fafc;}
-    .wrap{max-width:1100px; margin:0 auto;}
-    h1{font-size:1.5rem; margin:0 0 0.5rem;}
-    p.note{color:#475569; margin:0 0 1rem;}
-    #vis{border-radius:16px; background:white; padding:1rem; box-shadow:0 6px 22px rgba(0,0,0,0.05);}
-    footer{margin-top:1rem; color:#64748b; font-size:0.9rem;}
-    code{background:#f1f5f9; padding:2px 6px; border-radius:6px;}
-  </style>
-  <!-- Vega & Vega-Lite (from JSDelivr CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <!-- Load Vega libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 </head>
 <body>
-  <div class="wrap">
-    <h1>Australia Rural Fire Stations — Dot Map</h1>
-    <p class="note">Source: Australian Government &mdash; Rural/Country Fire Service Facilities CSV. Projection: conic equal-area, graticule 30°.</p>
-    <div id="vis"></div>
-    <footer>
-      <div>Hover dots for details. ⚠️ If the map doesn’t load on GitHub Pages, double‑check folder paths: <code>js/ne_110m.json</code> and <code>data/Rural_Country_Fire_Service_Facilities.csv</code>.</div>
-    </footer>
-  </div>
+  
+<div id="firestations_map"></div>
 
-  <script type="text/javascript">
-  const spec = {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 680,
-    "projection": {
-      "type": "conicEqualArea",
-      "parallels": [-18, -36],
-      "rotate": [-134, 0, 0],
-      "center": [0, -25],
-      "scale": 1200
-    },
-    "layer": [
-      {
-        "data": {"sphere": {}},
-        "mark": {"type": "geoshape", "fill": "#E7F0FA"}
-      },
-      {
-        "data": {"url": "js/ne_110m.json", "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}},
-        "mark": {"type": "geoshape", "stroke": "#CBD5E1", "strokeWidth": 0.6}
-      },
-      {
-        "data": {"url": "js/ne_110m.json", "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}},
-        "mark": {"type": "geoshape", "fill": "#F8FAFC", "stroke": "#94A3B8", "strokeWidth": 0.6}
-      },
-      {
-        "data": {"url": "data/Rural_Country_Fire_Service_Facilities.csv"},
-        "mark": {"type": "circle", "size": 25, "opacity": 0.75, "stroke": "white", "strokeWidth": 0.2},
-        "encoding": {
-          "longitude": {"field": "facility_long", "type": "quantitative"},
-          "latitude": {"field": "facility_lat", "type": "quantitative"},
-          "color": {"field": "facility_state", "type": "nominal", "title": "State/Territory", "legend": {"columns": 4}},
-          "tooltip": [
-            {"field": "facility_name", "type": "nominal", "title": "Facility"},
-            {"field": "facility_state", "type": "nominal", "title": "State/Territory"},
-            {"field": "facility_address", "type": "nominal", "title": "Address"}
-          ]
-        }
-      }
-    ],
-    "config": {
-      "view": {"stroke": null},
-      "background": "white",
-      "legend": {"orient": "bottom"}
-    }
-  };
+<script type="text/javascript">
+  var spec = "js/firestations.vg.json";
+  vegaEmbed('#firestations_map', spec).catch(console.error);
+</script>
 
-  vegaEmbed("#vis", spec, {actions: false});
-  </script>
 </body>
 </html>
