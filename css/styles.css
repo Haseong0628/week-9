@@ -1,11 +1,12 @@
 body {
-  background-color: #f8fafc;      /* soft off-white background */
+  background-color: #f8fafc;      /* soft neutral background */
   display: flex;
   flex-direction: column;          /* stack title + map vertically */
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;     /* start from top (not vertically centered) */
   min-height: 100vh;
   margin: 0;
+  padding-top: 40px;               /* ensure title never gets cut off */
   font-family: Arial, sans-serif;
 }
 
@@ -15,17 +16,16 @@ body {
   font-size: 32px;
   font-weight: 700;
   color: #1e293b;
-  margin-top: 40px;
   margin-bottom: 20px;
 }
 
-/* Map container styling */
+/* Map container */
 #firestations_map {
-  border: 4px solid #94A3B8;      /* visible slate-gray border */
+  border: 3px solid #94A3B8;      /* visible thin grey outline */
   border-radius: 10px;
   background-color: white;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;                  /* space inside the border */
-  width: 1150px;                  /* slightly larger than Vega width */
-  margin-bottom: 50px;            /* spacing below map */
+  padding: 8px;                   /* tighter padding (was 20px) */
+  width: 1120px;                  /* slightly wider than Vega width */
+  margin: 0 auto 50px auto;       /* center horizontally, space below */
 }
