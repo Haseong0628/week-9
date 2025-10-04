@@ -9,7 +9,6 @@
     "center": [0, -27],
     "scale": 1100
   },
-
   "layer": [
     {
       "data": {
@@ -34,15 +33,15 @@
       },
       "encoding": {
         "longitude": { "field": "facility_long", "type": "quantitative" },
-        "latitude":  { "field": "facility_lat",  "type": "quantitative" },
+        "latitude": { "field": "facility_lat", "type": "quantitative" },
         "color": {
           "field": "facility_state",
           "type": "nominal",
           "title": "State/Territory"
         },
         "tooltip": [
-          { "field": "facility_name",    "type": "nominal", "title": "Facility" },
-          { "field": "facility_state",   "type": "nominal", "title": "State/Territory" },
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "facility_state", "type": "nominal", "title": "State/Territory" },
           { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
           { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
           { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
@@ -50,10 +49,9 @@
       }
     }
   ],
-
   "config": {
     "view": { "stroke": null },
-    "background": "#B7D8F5",   // ← light blue background (ocean)
+    "background": "#B7D8F5",
     "legend": {
       "orient": "bottom",
       "columns": 4,
