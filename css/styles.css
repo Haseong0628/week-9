@@ -7,13 +7,11 @@ body {
   margin: 0;                        /* remove default margins */
 }
 
-firestations_map {
+#firestations_map {
   border: 2px solid #94A3B8;  /* thin slate-gray outline */
   border-radius: 8px;
   padding: 10px;              /* adds spacing between chart and border */
-  background-color: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  width: 1000px;
-  margin: 20px auto;
+
 }
+
 
