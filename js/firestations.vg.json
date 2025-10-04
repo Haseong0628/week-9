@@ -18,7 +18,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": null,                 // <-- prevent blue fill
+        "fill": null,
         "stroke": "#C4CDD7",
         "strokeWidth": 0.5,
         "opacity": 0.6
