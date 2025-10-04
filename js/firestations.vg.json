@@ -36,9 +36,9 @@
         "longitude": { "field": "facility_long", "type": "quantitative" },
         "latitude":  { "field": "facility_lat",  "type": "quantitative" },
         "color": {
-            "field": "facility_state",
-            "type": "nominal",
-            "title": "State/Territory",
+          "field": "facility_state",
+          "type": "nominal",
+          "title": "State/Territory",
           "legend": {
             "orient": "right",
             "columns": 1,
