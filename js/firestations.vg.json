@@ -7,13 +7,14 @@
     "parallels": [-18, -36],
     "rotate": [-134, 0, 0],
     "center": [0, -27],
-    "scale": 1100
+    "scale": 1100,
+    "clipExtent": [[0, 0], [1100, 740]]
   },
 
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json?v=11",
+        "url": "js/ne_110m.json?v=13",
         "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
       },
       "mark": {
@@ -25,7 +26,7 @@
     },
     {
       "data": {
-        "url": "js/ne_110m.json?v=11",
+        "url": "js/ne_110m.json?v=13",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
@@ -53,8 +54,8 @@
           "title": "State/Territory"
         },
         "tooltip": [
-          { "field": "facility_name",    "type": "nominal", "title": "Facility" },
-          { "field": "facility_state",   "type": "nominal", "title": "State/Territory" },
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "facility_state", "type": "nominal", "title": "State/Territory" },
           { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
           { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
           { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
