@@ -14,6 +14,17 @@
     {
       "data": {
         "url": "js/ne_110m.json?v=11",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#B7D8F5",      /* ocean blue background */
+        "stroke": null
+      }
+    },
+    {
+      "data": {
+        "url": "js/ne_110m.json?v=11",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
