@@ -38,15 +38,7 @@
         "color": {
           "field": "facility_state",
           "type": "nominal",
-          "title": "State/Territory",
-          "legend": {
-            "orient": "right",
-            "columns": 1,
-            "labelFontSize": 14,
-            "titleFontSize": 16,
-            "symbolSize": 120,
-            "labelLimit": 200
-          }
+          "title": "State/Territory"
         },
         "tooltip": [
           { "field": "facility_name",    "type": "nominal", "title": "Facility" },
@@ -61,6 +53,14 @@
 
   "config": {
     "view": { "stroke": null },
-    "background": "white"
+    "background": "white",
+    "legend": {
+      "orient": "right",
+      "columns": 1,
+      "labelFontSize": 14,
+      "titleFontSize": 16,
+      "symbolSize": 120,
+      "labelLimit": 200
+    }
   }
 }
