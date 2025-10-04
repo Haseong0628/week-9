@@ -1,0 +1,14 @@
+<body style="background-color:#f8fafc;">
+  <div id="firestations_map"></div>
+</body>
+
+<style>
+  #firestations_map {
+    width: 1000px;               /* same as your Vega width */
+    margin: 50px auto;           /* centers horizontally with margin above/below */
+    border: 3px solid #94A3B8;   /* slate-gray border around map */
+    border-radius: 10px;         /* optional rounded corners */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* subtle shadow for depth */
+    background-color: white;     /* ensure white backdrop */
+  }
+</style>
