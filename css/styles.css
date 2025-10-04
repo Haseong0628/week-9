@@ -7,7 +7,7 @@ body {
   margin: 0;                        /* remove default margins */
 }
 
-#firestations_map {
+firestations_map {
   border: 2px solid #94A3B8;  /* thin slate-gray outline */
   border-radius: 8px;
   padding: 10px;              /* adds spacing between chart and border */
@@ -16,3 +16,4 @@ body {
   width: 1000px;
   margin: 20px auto;
 }
+
