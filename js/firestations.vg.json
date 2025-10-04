@@ -19,7 +19,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": null,
+        "fill": "lightgray",
         "stroke": "#94A3B8",
         "strokeWidth": 0.8
       }
@@ -28,7 +28,7 @@
       "data": { "url": "data/Rural_Country_Fire_Service_Facilities.csv" },
       "mark": {
         "type": "circle",
-        "size": 25,
+        "size": 15,
         "opacity": 0.75,
         "stroke": "white",
         "strokeWidth": 0.2
