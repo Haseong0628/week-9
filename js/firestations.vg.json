@@ -55,6 +55,11 @@
   "config": {
     "view": { "stroke": null },
     "background": "white",
-    "legend": { "orient": "bottom" }
+    "legend": { "orient": "right",
+    "columns": 1
+    "labelFontSize": 14,      
+    "titleFontSize": 16,      
+    "symbolSize": 120,        
+    }
   }
 }
