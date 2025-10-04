@@ -61,6 +61,6 @@
 
   "config": {
     "view": { "stroke": null },
-    "background": "white",
+    "background": "white"
   }
 }
