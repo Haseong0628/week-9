@@ -19,7 +19,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "lightgray",
+        "fill": "#DCE2E8",
         "stroke": "white",
         "strokeWidth": 0.8
       }
@@ -45,7 +45,7 @@
         "tooltip": [
           { "field": "facility_name",    "type": "nominal", "title": "Facility" },
           { "field": "facility_state",   "type": "nominal", "title": "State/Territory" },
-          { "field": "facility_address", "type": "nominal", "title": "Address" }
+          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" }
         ]
       }
     }
