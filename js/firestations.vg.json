@@ -2,18 +2,16 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 1000,
   "height": 680,
-  "projection": {
-    "type": "conicEqualArea",
-    "parallels": [-18, -36],
-    "rotate": [-134, 0, 0],
-    "center": [0, -20],
-    "scale": 1000
-  },
+
+  // Let Vega-Lite auto-fit the projection to your data.
+  // No center/scale/rotate/parallels; leaving only the type.
+  "projection": { "type": "conicEqualArea", "fit": true },
+
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json",
-        "format": {"type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020"}
+        "url": "js/ne_110m.json?v=5",
+        "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
         "type": "geoshape",
@@ -23,18 +21,7 @@
       }
     },
     {
-      "data": {
-        "url": "js/ne_110m.json",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      },
-      "mark": {
-        "type": "geoshape",
-        "stroke": "#CBD5E1",
-        "strokeWidth": 0.6
-      }
-    },
-    {
-      "data": {"url": "data/Rural_Country_Fire_Service_Facilities.csv"},
+      "data": { "url": "data/Rural_Country_Fire_Service_Facilities.csv" },
       "mark": {
         "type": "circle",
         "size": 25,
@@ -43,25 +30,26 @@
         "strokeWidth": 0.2
       },
       "encoding": {
-        "longitude": {"field": "facility_long", "type": "quantitative"},
-        "latitude": {"field": "facility_lat", "type": "quantitative"},
+        "longitude": { "field": "facility_long", "type": "quantitative" },
+        "latitude":  { "field": "facility_lat",  "type": "quantitative" },
         "color": {
           "field": "facility_state",
           "type": "nominal",
           "title": "State/Territory",
-          "legend": {"columns": 4}
+          "legend": { "columns": 4 }
         },
         "tooltip": [
-          {"field": "facility_name", "type": "nominal", "title": "Facility"},
-          {"field": "facility_state", "type": "nominal", "title": "State/Territory"},
-          {"field": "facility_address", "type": "nominal", "title": "Address"}
+          { "field": "facility_name",   "type": "nominal", "title": "Facility" },
+          { "field": "facility_state",  "type": "nominal", "title": "State/Territory" },
+          { "field": "facility_address","type": "nominal", "title": "Address" }
         ]
       }
     }
   ],
+
   "config": {
-    "view": {"stroke": null},
+    "view": { "stroke": null },
     "background": "white",
-    "legend": {"orient": "bottom"}
+    "legend": { "orient": "bottom" }
   }
 }
