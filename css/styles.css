@@ -9,3 +9,12 @@ body {
 
 
 
+
+#firestations_map {
+  border: 2px solid #94A3B8;  /* thin slate-gray outline */
+  border-radius: 8px;
+  padding: 10px;              /* adds spacing between chart and border */
+  border: 2px solid #94A3B8;  /* thin slate-gray outline */            /* adds spacing between chart and border */
+
+}
+
