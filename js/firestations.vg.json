@@ -25,6 +25,18 @@
       "mark": {"type": "geoshape", "fill": "#F8FAFC", "stroke": "#94A3B8", "strokeWidth": 0.6}
     },
     {
+      "data": {
+        "url": "js/Land_Borders_-_Borderlines.geojson",
+        "format": {"type": "geojson"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#6366F1",
+        "strokeWidth": 1
+      }
+    },
+    {
       "data": {"url": "data/Rural_Country_Fire_Service_Facilities.csv"},
       "mark": {
         "type": "circle",
