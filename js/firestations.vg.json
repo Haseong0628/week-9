@@ -3,8 +3,6 @@
   "width": 1000,
   "height": 680,
 
-  // Let Vega-Lite auto-fit the projection to your data.
-  // No center/scale/rotate/parallels; leaving only the type.
   "projection": { "type": "conicEqualArea", "fit": true },
 
   "layer": [
