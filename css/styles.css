@@ -1,20 +1,31 @@
 body {
-  background-color: #f8fafc;        /* soft off-white background */
-  display: flex;                    /* enables flex layout */
-  justify-content: center;          /* horizontal centering */
-  align-items: center;              /* vertical centering */
-  height: 100vh;                    /* make body fill full browser height */
-  margin: 0;                        /* remove default margins */
+  background-color: #f8fafc;      /* soft off-white background */
+  display: flex;
+  flex-direction: column;          /* stack title + map vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* Title above map */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
 
-
-
+/* Map container styling */
 #firestations_map {
-  border: 2px solid #94A3B8;  /* thin slate-gray outline */
-  border-radius: 8px;
-  padding: 10px;              /* adds spacing between chart and border */
-  border: 2px solid #94A3B8;  /* thin slate-gray outline */            /* adds spacing between chart and border */
-
+  border: 4px solid #94A3B8;      /* visible slate-gray border */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;                  /* space inside the border */
+  width: 1150px;                  /* slightly larger than Vega width */
+  margin-bottom: 50px;            /* spacing below map */
 }
-
