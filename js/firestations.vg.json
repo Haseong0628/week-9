@@ -1,7 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 1100,
-  "height": 760,
+  "height": 740,
+  "title": {
+  "text": "Rural Fire Stations across Australia",
+  "fontSize": 24,
+  "font": "Arial",
+  "fontWeight": "bold",
+  "anchor": "middle",
+  "color": "#1e293b"
+},
 },
 
 
