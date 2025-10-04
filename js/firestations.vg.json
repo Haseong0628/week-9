@@ -7,31 +7,31 @@
     "parallels": [-18, -36],
     "rotate": [-134, 0, 0],
     "center": [0, -27],
-    "scale": 1100,
-    "clipExtent": [[0, 0], [1100, 740]]
+    "scale": 1100
   },
 
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json?v=13",
+        "url": "js/ne_110m.json?v=11",
         "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
       },
       "mark": {
         "type": "geoshape",
-        "stroke": "#C4CDD7",
+        "fill": "#B7D8F5",        /* light blue ocean */
+        "stroke": "#C4CDD7",      /* subtle graticule lines */
         "strokeWidth": 0.5,
-        "opacity": 0.5
+        "opacity": 0.6
       }
     },
     {
       "data": {
-        "url": "js/ne_110m.json?v=13",
+        "url": "js/ne_110m.json?v=11",
         "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#DCE2E8",
+        "fill": "#DCE2E8",        /* land (Australia) */
         "stroke": "white",
         "strokeWidth": 0.8
       }
