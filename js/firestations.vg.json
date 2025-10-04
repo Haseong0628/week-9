@@ -55,8 +55,8 @@
     "view": { "stroke": null },
     "background": "white",
     "legend": {
-      "orient": "right",
-      "columns": 1,
+      "orient": "bottom",
+      "columns": 4,
       "labelFontSize": 14,
       "titleFontSize": 16,
       "symbolSize": 120,
