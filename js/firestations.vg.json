@@ -5,10 +5,10 @@
 
   "projection": {
     "type": "conicEqualArea",
-    "parallels": [-18, -36],
+
     "rotate": [-134, 0, 0],
     "center": [0, -30],
-    "scale": 900
+    "scale": 950
   },
 
   "layer": [
