@@ -1,0 +1,31 @@
+body {
+  background-color: #f8fafc;      /* soft neutral background */
+  display: flex;
+  flex-direction: column;          /* stack title + map vertically */
+  align-items: center;
+  justify-content: flex-start;     /* start from top (not vertically centered) */
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 40px;               /* ensure title never gets cut off */
+  font-family: Arial, sans-serif;
+}
+
+/* Title above map */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+/* Map container */
+#firestations_map {
+  border: 3px solid #94A3B8;      /* visible thin grey outline */
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 8px;                   /* tighter padding (was 20px) */
+  width: 1120px;                  /* slightly wider than Vega width */
+  margin: 0 auto 50px auto;       /* center horizontally, space below */
+}
