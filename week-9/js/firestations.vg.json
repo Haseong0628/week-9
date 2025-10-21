@@ -3,31 +3,16 @@
   "width": 1100,
   "height": 740,
   "projection": {
-    "type": "conicEqualArea",
-    "parallels": [-18, -36],
-    "rotate": [-134, 0, 0],
-    "center": [0, -27],
-    "scale": 1100
+    "type": "mercator"
   },
-
   "layer": [
     {
       "data": {
-        "url": "js/ne_110m.json?v=11",
-        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": null,
-        "stroke": "#C4CDD7",
-        "strokeWidth": 0.5,
-        "opacity": 0.6
-      }
-    },
-    {
-      "data": {
-        "url": "js/ne_110m.json?v=11",
-        "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
+        "url": "js/VIC_shape_LGA.json",
+        "format": {
+          "type": "topojson",
+          "feature": "LGA_POLYGON"
+        }
       },
       "mark": {
         "type": "geoshape",
@@ -37,43 +22,127 @@
       }
     },
     {
-      "data": { "url": "data/Rural_Country_Fire_Service_Facilities.csv" },
+      "data": {
+        "url": "data/Ambulance_Stations_vic.csv"
+      },
       "mark": {
         "type": "circle",
-        "size": 15,
-        "opacity": 0.75,
+        "color": "orange",
+        "size": 30,
+        "opacity": 0.85,
         "stroke": "white",
-        "strokeWidth": 0.2
+        "strokeWidth": 0.3
       },
       "encoding": {
-        "longitude": { "field": "facility_long", "type": "quantitative" },
-        "latitude":  { "field": "facility_lat",  "type": "quantitative" },
-        "color": {
-          "field": "facility_state",
-          "type": "nominal",
-          "title": "State/Territory"
+        "longitude": {
+          "field": "facility_long",
+          "type": "quantitative"
         },
+        "latitude": {
+          "field": "facility_lat",
+          "type": "quantitative"
+        }
+        ,
         "tooltip": [
           { "field": "facility_name", "type": "nominal", "title": "Facility" },
-          { "field": "facility_state", "type": "nominal", "title": "State/Territory" },
           { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
           { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
-        ]
+          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
+      }
+    },
+    {
+      "data": {
+        "url": "data/Metro_Fire_vic.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "red",
+        "size": 30,
+        "opacity": 0.85,
+        "stroke": "white",
+        "strokeWidth": 0.3
+      },
+      "encoding": {
+        "longitude": {
+          "field": "facility_long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "facility_lat",
+          "type": "quantitative"
+        }
+        ,
+        "tooltip": [
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
+          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
+          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
+      }
+    },
+    {
+      "data": {
+        "url": "data/Police_Stations_vic.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "darkblue",
+        "size": 30,
+        "opacity": 0.85,
+        "stroke": "white",
+        "strokeWidth": 0.3
+      },
+      "encoding": {
+        "longitude": {
+          "field": "facility_long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "facility_lat",
+          "type": "quantitative"
+        }
+        ,
+        "tooltip": [
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
+          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
+          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
+      }
+    
+    },
+    {
+      "data": {
+        "url": "data/Rural_fire_vic.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "red",
+        "size": 30,
+        "opacity": 0.85,
+        "stroke": "white",
+        "strokeWidth": 0.3
+      },
+      "encoding": {
+        "longitude": {
+          "field": "facility_long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "facility_lat",
+          "type": "quantitative"
+        }
+        ,
+        "tooltip": [
+          { "field": "facility_name", "type": "nominal", "title": "Facility" },
+          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
+          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
+          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
       }
     }
   ],
-
   "config": {
-    "view": { "stroke": null },
-    "background": "white",
-    "legend": {
-      "orient": "bottom",
-      "columns": 4,
-      "labelFontSize": 14,
-      "titleFontSize": 16,
-      "symbolSize": 120,
-      "labelLimit": 200
-    }
+    "view": {
+      "stroke": null
+    },
+    "background": "white"
   }
 }
