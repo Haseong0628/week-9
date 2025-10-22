@@ -1,148 +1,205 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1100,
-  "height": 740,
-  "projection": {
-    "type": "mercator"
-  },
-  "layer": [
+
+  "vconcat": [
     {
-      "data": {
-        "url": "js/VIC_shape_LGA.json",
-        "format": {
-          "type": "topojson",
-          "feature": "LGA_POLYGON"
-        }
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#DCE2E8",
-        "stroke": "white",
-        "strokeWidth": 0.8
-      }
-    },
-    {
-      "data": {
-        "url": "data/Ambulance_Stations_vic.csv"
-      },
-      "mark": {
-        "type": "circle",
-        "color": "orange",
-        "size": 30,
-        "opacity": 0.85,
-        "stroke": "white",
-        "strokeWidth": 0.3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "facility_long",
-          "type": "quantitative"
+      "width": 1100,
+      "height": 740,
+      "projection": { "type": "mercator" },
+
+      "layer": [
+        {
+          "data": {
+            "url": "js/VIC_shape_LGA.json",
+            "format": { "type": "topojson", "feature": "LGA_POLYGON" }
+          },
+          "mark": { "type": "geoshape", "fill": "#DCE2E8", "stroke": "white", "strokeWidth": 0.8 }
         },
-        "latitude": {
-          "field": "facility_lat",
-          "type": "quantitative"
-        }
-        ,
-        "tooltip": [
-          { "field": "facility_name", "type": "nominal", "title": "Facility" },
-          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
-          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
-      }
-    },
-    {
-      "data": {
-        "url": "data/Metro_Fire_vic.csv"
-      },
-      "mark": {
-        "type": "circle",
-        "color": "red",
-        "size": 30,
-        "opacity": 0.85,
-        "stroke": "white",
-        "strokeWidth": 0.3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "facility_long",
-          "type": "quantitative"
+
+        {
+          "data": { "url": "data/VIC_all_services.csv" },
+          "transform": [
+            {
+              "calculate": "indexof(lower(datum.class),'polic')>=0 ? 'Police Station' : indexof(lower(datum.class),'ambul')>=0 ? 'Ambulance Station' : 'Fire Station'",
+              "as": "service_label"
+            }
+          ],
+          "params": [
+            {
+              "name": "svc_highlight",
+              "select": { "type": "point", "fields": ["service_label"] },
+              "bind": "legend",
+              "value": [
+                { "service_label": "Fire Station" },
+                { "service_label": "Police Station" },
+                { "service_label": "Ambulance Station" }
+              ]
+            }
+          ],
+          "mark": { "type": "point", "size": 45, "opacity": 0.85, "stroke": "white", "strokeWidth": 0.4, "filled": true },
+          "encoding": {
+            "longitude": { "field": "facility_long", "type": "quantitative" },
+            "latitude":  { "field": "facility_lat",  "type": "quantitative" },
+
+            "color": {
+              "field": "service_label",
+              "type": "nominal",
+              "title": "Service",
+              "scale": {
+                "domain": ["Fire Station", "Police Station", "Ambulance Station"],
+                "range":  ["red", "blue", "orange"]
+              },
+              "legend": { "orient": "bottom", "columns": 3, "labelLimit": 240 }
+            },
+
+            "shape": {
+              "field": "service_label",
+              "type": "nominal",
+              "scale": {
+                "domain": ["Fire Station", "Police Station", "Ambulance Station"],
+                "range":  ["triangle", "circle", "square"]
+              }
+            },
+
+            "opacity": {
+              "condition": { "param": "svc_highlight", "value": 0.85 },
+              "value": 0.0001
+            },
+
+            "tooltip": [
+              { "field": "service_label", "title": "Service" },
+              { "field": "facility_name", "title": "Facility" },
+              { "field": "gnaf_formatted_address", "title": "Address" },
+              { "field": "abs_suburb", "title": "Suburb" },
+              { "field": "abs_postcode", "title": "Post Code" }
+            ]
+          }
         },
-        "latitude": {
-          "field": "facility_lat",
-          "type": "quantitative"
+
+        {
+          "layer": [
+            {
+              "data": {
+                "values": [
+                  {
+                    "start_long": 146.1,
+                    "start_lat": -35.8,
+                    "end_long": 146.45,
+                    "end_lat": -35.2,
+                    "label": "Fire Stations can be seen appearing more than other services in rural areas."
+                  }
+                ]
+              },
+              "layer": [
+                {
+                  "mark": { "type": "rule", "stroke": "#374151", "strokeWidth": 1.5, "opacity": 0.9 },
+                  "encoding": {
+                    "longitude":  { "field": "start_long", "type": "quantitative" },
+                    "latitude":   { "field": "start_lat",  "type": "quantitative" },
+                    "longitude2": { "field": "end_long" },
+                    "latitude2":  { "field": "end_lat" }
+                  }
+                },
+                {
+                  "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 8, "dy": -2, "fontSize": 13, "fontStyle": "italic", "color": "#111827" },
+                  "encoding": {
+                    "longitude": { "field": "end_long", "type": "quantitative" },
+                    "latitude":  { "field": "end_lat",  "type": "quantitative" },
+                    "text": { "field": "label" }
+                  }
+                }
+              ]
+            }
+          ]
         }
-        ,
-        "tooltip": [
-          { "field": "facility_name", "type": "nominal", "title": "Facility" },
-          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
-          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
-      }
+      ]
     },
+
     {
-      "data": {
-        "url": "data/Police_Stations_vic.csv"
+      "width": 1100,
+      "height": 740,
+      "projection": {
+        "type": "conicEqualArea",
+        "parallels": [-18, -36],
+        "rotate": [-134, 0, 0],
+        "center": [0, -7.5],
+        "scale": 1100
       },
-      "mark": {
-        "type": "circle",
-        "color": "darkblue",
-        "size": 30,
-        "opacity": 0.85,
-        "stroke": "white",
-        "strokeWidth": 0.3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "facility_long",
-          "type": "quantitative"
+
+      "layer": [
+        {
+          "data": {
+            "url": "js/ne_110m.json?v=11",
+            "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": null,
+            "stroke": "#C4CDD7",
+            "strokeWidth": 0.5,
+            "opacity": 0.6
+          }
         },
-        "latitude": {
-          "field": "facility_lat",
-          "type": "quantitative"
-        }
-        ,
-        "tooltip": [
-          { "field": "facility_name", "type": "nominal", "title": "Facility" },
-          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
-          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
-      }
-    
-    },
-    {
-      "data": {
-        "url": "data/Rural_fire_vic.csv"
-      },
-      "mark": {
-        "type": "circle",
-        "color": "red",
-        "size": 30,
-        "opacity": 0.85,
-        "stroke": "white",
-        "strokeWidth": 0.3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "facility_long",
-          "type": "quantitative"
+        {
+          "data": {
+            "url": "js/ne_110m.json?v=11",
+            "format": { "type": "topojson", "feature": "GCCSA_2021_AUST_GDA2020" }
+          },
+          "mark": {
+            "type": "geoshape",
+            "fill": "#DCE2E8",
+            "stroke": "white",
+            "strokeWidth": 0.8
+          }
         },
-        "latitude": {
-          "field": "facility_lat",
-          "type": "quantitative"
+        {
+          "data": { "url": "data/Rural_Country_Fire_Service_Facilities.csv" },
+          "mark": {
+            "type": "circle",
+            "size": 15,
+            "opacity": 0.75,
+            "stroke": "white",
+            "strokeWidth": 0.2
+          },
+          "encoding": {
+            "longitude": { "field": "facility_long", "type": "quantitative" },
+            "latitude":  { "field": "facility_lat",  "type": "quantitative" },
+            "color": {
+              "field": "facility_state",
+              "type": "nominal",
+              "title": "State/Territory",
+              "legend": {
+                "orient": "bottom",
+                "columns": 4,
+                "labelFontSize": 14,
+                "titleFontSize": 16,
+                "symbolSize": 120,
+                "labelLimit": 200
+              }
+            },
+            "tooltip": [
+              { "field": "facility_name", "type": "nominal", "title": "Facility" },
+              { "field": "facility_state", "type": "nominal", "title": "State/Territory" },
+              { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
+              { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
+              { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }
+            ]
+          }
         }
-        ,
-        "tooltip": [
-          { "field": "facility_name", "type": "nominal", "title": "Facility" },
-          { "field": "gnaf_formatted_address", "type": "nominal", "title": "Address" },
-          { "field": "abs_suburb", "type": "nominal", "title": "Suburb" },
-          { "field": "abs_postcode", "type": "nominal", "title": "Post Code" }]
-      }
+      ]
     }
   ],
+
+  "spacing": 40,
+
+  "resolve": {
+    "scale": { "color": "independent", "shape": "independent" },
+    "legend": { "color": "independent", "shape": "independent" }
+  },
+
   "config": {
-    "view": {
-      "stroke": null
-    },
-    "background": "white"
+    "view": { "stroke": null },
+    "background": "white",
+    "legend": { "labelFontSize": 14, "titleFontSize": 16, "symbolSize": 160 }
   }
 }
